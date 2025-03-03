@@ -15,5 +15,10 @@ public interface EmpService {
     void save(Emp emp);
 
     void deleteByIds(List<Integer> ids);
+
+    /**
+     * 根据ID查询员工的详细信息
+     */
+    Emp getInfo(Integer id);
 }
 
