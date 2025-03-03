@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Array;
+import java.util.List;
+
 /**
  * 员工管理Controller
  */
@@ -31,11 +34,24 @@ public class EmpController {
         return Result.success(pageResult);
     }
 
+    /**
+     * 新增员工
+     */
     @Transactional(rollbackFor = Exception.class)
     @PostMapping
     public Result save(@RequestBody Emp emp) {
         log.info("请求参数emp: {}", emp);
         empService.save(emp);
+        return Result.success();
+    }
+
+    /**
+     * 批量删除员工
+     */
+    @DeleteMapping
+    public Result delete(@RequestParam List<Integer> ids) {
+        log.info("批量删除部门：ids: {}", ids);
+        empService.deleteByIds(ids);
         return Result.success();
     }
 }
