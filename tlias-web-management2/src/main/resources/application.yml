@@ -13,4 +13,9 @@ mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     # 开启驼峰命名映射开关
-    map-underscore-to-camel-case: true
+    map-underscore-to-camel-case0: true
+
+#spring事务管理日志
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug

@@ -9,5 +9,7 @@ public interface EmpService {
      * 分页查询
      */
     PageResult<Emp> page(EmpQueryParam empQueryParam);
+
+    void save(Emp emp);
 }
 
